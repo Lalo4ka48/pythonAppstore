@@ -1,0 +1,167 @@
+<MyGrid>:
+    name: "menu"
+
+    GridLayout:
+
+        cols:1
+        size: root.width, 200
+        Label:
+
+            text:"Помічник дотера 7.31c"
+            color: 1, 0, 0, 1
+            size_hint: 1, .2
+            font_size: 24
+
+
+
+
+        GridLayout:
+            cols:2
+
+            Button:
+                text: "Герої"
+                font_size: 24
+                color: 0, 0, 1, 1
+                on_release: root.manager.current = "heroes"
+
+            Button:
+                text: "Предмети"
+                color: 0, 0, 0, 1
+                font_size: 24
+
+                on_release: root.manager.current = "items"
+
+            Button:
+                text: "Гайди"
+                color: 1, 0, 0, 1
+                font_size: 24
+
+                on_release: root.manager.current = "guides"
+            Image:
+                source: 'imagesbg/kanekijpg.jpg'
+                keep_ratio: False
+                allow_stretch: True
+
+<HeroGrid>:
+    name: "heroes"
+    size: root.width, root.height
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        GridLayout:
+            size_hint: 1, 0.15
+            cols: 3
+            Button:
+                pos_hint: {"x":0, "top":1}
+                text:"Назад"
+                size_hint: 0.2, 0.2
+
+                on_release: root.manager.current = "menu"
+            Label:
+                text:"Герої"
+                size_hint: .4, .2
+                font_size: 24
+            Spinner:
+                size_hint: .4, .2
+                id: spinner_id
+                text: "Оберіть атрибут"
+                values: ["Сила", "Спритність", "Інтелект"]
+
+
+        GridLayout:
+            cols:4
+
+
+
+<Items>:
+    name:"items"
+    size: root.width, root.height
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        GridLayout:
+            size_hint: 1, 0.15
+            cols: 2
+            Button:
+                pos_hint: {"x":0, "top":1}
+                text:"Назад"
+                size_hint: 0.2, 0.2
+
+                on_release: root.manager.current = "menu"
+            Label:
+                text:"Предмети"
+                size_hint: .8, .2
+                font_size: 24
+        GridLayout:
+            cols:2
+            size_hint: 1, 0.12
+
+
+            Button:
+                text:"Звичайні"
+
+                font_size: 24
+
+            Button:
+                text:"Нейтральні"
+
+                font_size: 24
+        GridLayout:
+            cols:5
+
+
+<Guides>:
+
+
+    name:"guides"
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        BoxLayout:
+
+            orientation: 'vertical'
+            size: root.width, root.height
+            GridLayout:
+                size_hint: 1, 0.15
+                cols: 2
+                Button:
+                    pos_hint: {"x":0, "top":1}
+                    text:"Назад"
+                    size_hint: 0.2, 0.2
+
+                    on_release: root.manager.current = "menu"
+                Label:
+                    text:"Гайди"
+                    size_hint: .8, .2
+                    font_size: 24
+            GridLayout:
+                cols: 2
+
+                Button:
+
+                    text:"СФ"
+
+                    font_size: 24
+                Button:
+                    text:"Морфлінг"
+
+
+
+                    font_size: 24
+                Button:
+                    text:"Клінкз"
+
+
+
+                    font_size: 24
+
+<Guide>:
+    size: root.width, root.height
+    name:"guide"
+
+<Hero>:
+    size: root.width, root.height
+    name:"hero"
+<Item>:
+    size: root.width, root.height
+    name:"item"
